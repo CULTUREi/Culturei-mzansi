@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culturei | Premium Mzansi Cleaning Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #003366; /* Deep Professional Blue */
+            --accent-color: #D4AF37; /* Premium Gold */
+            --light-bg: #f8f9fa;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--accent-color); }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover { color: var(--accent-color); }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://placehold.co/1920x800/003366/FFFFFF?text=Culturei+Facility');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #b5952f;
+            transform: translateY(-2px);
+        }
+
+        /* --- PRODUCTS SECTION --- */
+        .products {
+            padding: 4rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+
+        .section-title span {
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .btn-add {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-add:hover {
+            background-color: #002244;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            background-color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* --- CART SIDEBAR --- */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 2000;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-cart {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .cart-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-details h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cart-item-details p {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .remove-item {
+            color: var(--danger-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+            background-color: #f9f9f9;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background-color: var(--success-color);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-checkout:hover {
+            background-color: #218838;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* --- CHECKOUT MODAL --- */
+        .checkout-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            z-index: 3000;
+            display: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .checkout-modal.active {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .checkout-modal h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .btn-pay {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-pay:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .cart-sidebar { width: 100%; right: -100%; }
+            nav ul { display: none; } /* Simplified for mobile */
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Culture<span>i</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to Culturei</h1>
+        <p>Experience the power of the <strong>Mzansi</strong> product line. Premium, eco-friendly cleaning solutions crafted for excellence.</p>
+        <a href="#products"><button class="btn btn-primary">Shop Mzansi Products</button></a>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2 class="section-title"><span>The Mzansi Collection</span></h2>
+        <div class="product-grid" id="productGrid">
+            <!-- Products will be injected here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title"><span>About Culturei</span></h2>
+        <p>At Culturei, we believe in the power of clean. Our flagship brand, <strong>Mzansi</strong>, is dedicated to providing high-quality, culturally inspired cleaning and personal care products. From heavy-duty degreasers to nourishing hair care, every product is formulated with care, sustainability, and effectiveness in mind.</p>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items injected here -->
+            <p style="text-align: center; color: #666; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">R 0.00</span>
+            </div>
+            <button class="btn-checkout" onclick="openCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+    <div class="checkout-modal" id="checkoutModal">
+        <span class="close-modal" onclick="closeCheckout()">&times;</span>
+        <h2>Secure Checkout</h2>
+        <form id="checkoutForm" onsubmit="processPayment(event)">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+                <label>Shipping Address</label>
+                <input type="text" required placeholder="123 Main St, City">
+            </div>
+            <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" required placeholder="0000 0000 0000 0000" maxlength="19">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Expiry</label>
+                    <input type="text" required placeholder="MM/YY" maxlength="5">
+                </div>
+                <div class="form-group">
+                    <label>CVC</label>
+                    <input type="text" required placeholder="123" maxlength="3">
+                </div>
+            </div>
+            <div class="cart-total" style="margin-top: 1rem;">
+                <span>Amount to Pay:</span>
+                <span id="checkoutTotal">R 0.00</span>
+            </div>
+            <button type="submit" class="btn-pay" id="payButton">
+                <span class="spinner" id="spinner"></span>
+                <span id="payText">Pay Now</span>
+            </button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h3>Culturei</h3>
+        <p>Proud manufacturers of the Mzansi product line.</p>
+        <p>Email: info@culturei.co.za | Phone: +27 11 123 4567</p>
+        <p style="margin-top: 1rem;">&copy; 2023 Culturei. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // --- PRODUCT DATA ---
+        const products = [
+            {
+                id: 1,
+                name: "Mzansi Heavy-Duty Degreaser",
+                price: 149.99,
+                image: "https://placehold.co/400x300/003366/FFFFFF?text=Mzansi+Degreaser",
+                description: "Industrial-strength, eco-friendly degreaser perfect for kitchens, garages, and machinery. Cuts through grime instantly."
+            },
+            {
+                id: 2,
+                name: "Mzansi Botanical Bar Soap",
+                price: 45.00,
+                image: "https://placehold.co/400x300/D4AF37/003366?text=Mzansi+Bar+Soap",
+                description: "Rich, moisturizing bar soap infused with traditional African botanicals. Gentle on the skin, tough on dirt."
+            },
+            {
+                id: 3,
+                name: "Mzansi Nourishing Shampoo",
+                price: 89.50,
+                image: "https://placehold.co/400x300/28a745/FFFFFF?text=Mzansi+Shampoo",
+                description: "Premium hair care formula designed for all hair types. Leaves hair soft, shiny, and deeply nourished."
+            }
+        ];
+
+        // --- CART STATE ---
+        let cart = [];
+
+        // --- INITIALIZE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+        });
+
+        // --- RENDER PRODUCTS ---
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-price">R ${product.price.toFixed(2)}</div>
+                        <button class="btn-add" onclick="addToCart(${product.id})">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- CART FUNCTIONS ---
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            toggleCart(true); // Open cart when item is added
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            const checkoutTotal = document.getElementById('checkoutTotal');
+
+            // Update count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.innerText = totalItems;
+
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const formattedTotal = `R ${total.toFixed(2)}`;
+            cartTotal.innerText = formattedTotal;
+            checkoutTotal.innerText = formattedTotal;
+
+            // Render items
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; color: #666; margin-top: 2rem;">Your cart is empty.</p>';
+            } else {
+                cartItemsContainer.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <p>R ${item.price.toFixed(2)} x ${item.quantity}</p>
+                            <span class="remove-item" onclick="removeFromCart(${item.id})">
+                                <i class="fas fa-trash"></i> Remove
+                            </span>
+        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function toggleCart(forceOpen = false) {
+            const sidebar = document.getElementById('cartSidebar');
+            const overlay = document.getElementById('overlay');
+            if (forceOpen || !sidebar.classList.contains('active')) {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+            } else {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        }
+
+        // --- CHECKOUT FUNCTIONS ---
+        function openCheckout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            toggleCart(); // Close sidebar
+            document.getElementById('checkoutModal').classList.add('active');
+            document.getElementById('checkoutOverlay').classList.add('active');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+            document.getElementById('checkoutOverlay').classList.remove('active');
+        }
+
+        // --- PAYMENT PROCESSING SIMULATION ---
+        function processPayment(event) {
+            event.preventDefault();
+            
+            const payButton = document.getElementById('payButton');
+            const spinner = document.getElementById('spinner');
+            const payText = document.getElementById('payText');
+
+            // 1. UI Loading State
+            payButton.disabled = true;
+            spinner.style.display = 'block';
+            payText.innerText = 'Processing...';
+
+            // 2. Simulate API Call to Payment Gateway (e.g., Stripe, PayFast)
+            setTimeout(() => {
+                // 3. Success State
+                spinner.style.display = 'none';
+                payText.innerText = 'Pay Now';
+                payButton.disabled = false;
+                
+                // Generate a mock order ID
+                const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
+                
+                alert(`Payment Successful!\n\nOrder ID: ${orderId}\nThank you for shopping with Culturei. Your Mzansi products will be shipped shortly.`);
+                
+                // 4. Clear Cart and Close Modal
+                cart = [];
+                updateCartUI();
+                closeCheckout();
+                document.getElementById('checkoutForm').reset();
+
+                /* 
+                   NOTE FOR DEVELOPER: 
+                   To make this process REAL payments, replace the setTimeout above with a fetch() call 
+                   to your backend server, which then communicates with Stripe/PayPal.
+                   
+                   Example:
+                   const response = await fetch('/api/create-payment-intent', {
+                       method: 'POST',
+                       headers: { 'Content-Type': 'application/json' },
+                       body: JSON.stringify({ items: cart, total: calculateTotal() })
+                   });
+                   const data = await response.json();
+                   // Then use stripe.confirmCardPayment(data.clientSecret)
+                */
+            }, 2500); // 2.5 second simulated delay
+        }
+    </script>
+</body>
+</html>
