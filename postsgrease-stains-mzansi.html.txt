@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>How to Remove Grease Stains - Mzansi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f8f9fb;
+      color: #222;
+    }
+
+    header {
+      background: #1e2a38;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+    }
+
+    h1 {
+      color: #1e2a38;
+    }
+
+    .cta {
+      background: #f4a300;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 30px;
+      border-radius: 5px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Culturei Blog</h2>
+</header>
+
+<div class="container">
+
+  <h1>How to Remove Grease Stains from Work Uniforms Using Mzansi</h1>
+
+  <p>
+    Grease stains are tough because oil bonds with fabric fibers. Normal washing often fails.
+  </p>
+
+  <h3>Simple Method</h3>
+
+  <p>
+    1. Apply Mzansi directly on the stain<br>
+    2. Rub gently<br>
+    3. Wait 5–10 minutes<br>
+    4. Wash normally<br>
+    5. Do not dry until stain is gone
+  </p>
+
+  <h3>Why Mzansi Works</h3>
+  <p>
+    Designed for heavy stains like oil, grease, and industrial dirt.
+  </p>
+
+  <div class="cta">
+    Need Mzansi for your home or business?  
+    <br><br>
+    <a href="../contact.html">👉 Get Bulk & Retail Supply</a>
+  </div>
+
+</div>
+
+</body>
+</html>
