@@ -3,105 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Culturei | Mzansi Cleaning Products</title>
+    <title>About Us | Culturei - Premium Mzansi Cleaning Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- NAVIGATION -->
-<header class="navbar">
-    <div class="logo">Culturei</div>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="products.html">Products</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
-
-<!-- HERO SECTION -->
-<section class="hero">
-    <h1>Clean Homes. Simple Products. Real Mzansi Value.</h1>
-    <p>
-        Affordable, effective cleaning products made for everyday South African homes.
-    </p>
-
-    <a href="products.html" class="btn">Shop Products</a>
-</section>
-
-<!-- ABOUT PREVIEW -->
-<section class="home-section">
-    <h2>🧭 Who We Are</h2>
-    <p>
-        Culturei is a South African cleaning brand focused on affordable, reliable,
-        and practical household products.
-    </p>
-
-    <p>
-        We help families keep their homes clean without overspending.
-    </p>
-
-    <a href="about.html" class="link">Learn more about us →</a>
-</section>
-
-<!-- FEATURE PRODUCTS -->
-<section class="home-section">
-    <h2>🧼 Featured Products</h2>
-
-    <div class="product-preview">
-
-        <div class="product-card">
-            <img src="image/mzansi-hair-shampoo-700ml.png" alt="Shampoo">
-            <h3>Mzansi Shampoo 700ml</h3>
-            <p>R40.00</p>
+    <!-- Header -->
+    <header>
+        <div class="logo">Culture<span>i</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
         </div>
+    </header>
 
-        <div class="product-card">
-            <img src="image/mzansi-dishwashing-liquid.png" alt="Dishwashing Liquid">
-            <h3>Dishwashing Liquid</h3>
-            <p>R35.00</p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>About Culturei</h1>
+        <p>Discover the story behind the Mzansi product line</p>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section">
+        <h2 class="section-title"><span>Who We Are</span></h2>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://placehold.co/600x400/003366/FFFFFF?text=Culturei+Story" alt="Culturei Story">
+            </div>
+            <div class="about-content">
+                <h3>Clean Homes. Simple Products. Real Mzansi Value.</h3>
+                <p>Culturei is a South African cleaning brand focused on affordable, reliable, and practical household products. We help families keep their homes clean without overspending.</p>
+                <p>Our flagship brand, <strong>Mzansi</strong>, represents the spirit of South Africa - resilient, vibrant, and effective. Every product is formulated with care, using eco-friendly ingredients that are tough on dirt but gentle on your wallet.</p>
+                <p>Built for real households that need products that work, last longer, and stay affordable. From our humble beginnings in Cape Town, we've grown into a trusted name that families across Mzansi rely on daily.</p>
+                <a href="products.html" class="btn btn-secondary">Explore Our Products</a>
+            </div>
         </div>
+    </section>
 
-        <div class="product-card">
-            <img src="image/mzansi-multi-cleaner.png" alt="Multi Cleaner">
-            <h3>Multi-Purpose Cleaner</h3>
-            <p>R45.00</p>
+    <!-- Why Choose Culturei -->
+    <section class="section" style="background-color: white;">
+        <h2 class="section-title"><span>Why Choose Culturei?</span></h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h4>Affordable Everyday Prices</h4>
+                <p>We believe quality cleaning products shouldn't break the bank. Our prices are designed for real South African households.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-check-circle"></i>
+                <h4>Simple & Effective</h4>
+                <p>No complicated formulas. Just products that work hard so you don't have to. Simple cleaning solutions for everyday life.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-flag"></i>
+                <h4>Made for Mzansi Homes</h4>
+                <p>Proudly South African, our products are formulated with local needs in mind - from our water conditions to our climate.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-leaf"></i>
+                <h4>Eco-Conscious</h4>
+                <p>We're committed to environmentally friendly formulations that are safe for your family and our beautiful country.</p>
+            </div>
         </div>
+    </section>
 
+    <!-- Featured Products Preview -->
+    <section class="section">
+        <h2 class="section-title"><span>Featured Products</span></h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="image/mzansi-hair-shampoo-700ml.png" alt="Mzansi Shampoo" class="product-image">
+                <div class="product-info">
+                    <h3>Mzansi Shampoo 700ml</h3>
+                    <p>Premium hair care formula designed for all hair types. Leaves hair soft, shiny, and deeply nourished.</p>
+                    <div class="product-price">R 40.00</div>
+                    <button class="btn-add" onclick="addToCart(3)">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="image/mzansi-dishwashing-liquid-5l.png" alt="Dishwashing Liquid" class="product-image">
+                <div class="product-info">
+                    <h3>Dishwashing Liquid 5L</h3>
+                    <p>Powerful grease-cutting formula that's gentle on hands. Perfect for everyday dishwashing needs.</p>
+                    <div class="product-price">R 80.00</div>
+                    <button class="btn-add" onclick="addToCart(2)">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="image/mzansi-degreaser-5l.png" alt="Multi-Purpose Cleaner" class="product-image">
+                <div class="product-info">
+                    <h3>Heavy-Duty Degreaser 5L</h3>
+                    <p>Industrial-strength cleaner perfect for kitchens, garages, and tough household messes.</p>
+                    <div class="product-price">R 75.00</div>
+                    <button class="btn-add" onclick="addToCart(1)">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="products.html" class="btn btn-secondary">View All Products</a>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="about" style="background-color: var(--primary-color); color: var(--text-light);">
+        <h2 class="section-title" style="color: var(--text-light);"><span style="border-bottom: 3px solid var(--accent-color);">Ready for a Cleaner Home?</span></h2>
+        <p style="color: rgba(255,255,255,0.9);">Explore our products and start simple, effective cleaning today.</p>
+        <a href="products.html" class="btn btn-primary" style="margin-top: 1.5rem; display: inline-block;">Shop Now</a>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #666; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">R 0.00</span>
+            </div>
+            <button class="btn-checkout" onclick="openCheckout()">Proceed to Checkout</button>
+        </div>
     </div>
 
-    <a href="products.html" class="link">View all products →</a>
-</section>
+    <!-- Checkout Modal -->
+    <div class="overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+    <div class="checkout-modal" id="checkoutModal">
+        <span class="close-modal" onclick="closeCheckout()">&times;</span>
+        <h2>Secure Checkout</h2>
+        <form id="checkoutForm" onsubmit="processPayment(event)">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+                <label>Shipping Address</label>
+                <input type="text" required placeholder="123 Main St, City">
+            </div>
+            <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" required placeholder="0000 0000 0000 0000" maxlength="19">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Expiry</label>
+                    <input type="text" required placeholder="MM/YY" maxlength="5">
+                </div>
+                <div class="form-group">
+                    <label>CVC</label>
+                    <input type="text" required placeholder="123" maxlength="3">
+                </div>
+            </div>
+            <div class="cart-total" style="margin-top: 1rem;">
+                <span>Amount to Pay:</span>
+                <span id="checkoutTotal">R 0.00</span>
+            </div>
+            <button type="submit" class="btn-pay" id="payButton">
+                <span class="spinner" id="spinner"></span>
+                <span id="payText">Pay Now</span>
+            </button>
+        </form>
+    </div>
 
-<!-- WHY CULTUREI -->
-<section class="home-section">
-    <h2>🇿🇦 Made for Mzansi Homes</h2>
+    <!-- Footer -->
+    <footer>
+        <h3>Culturei</h3>
+        <p>Proud manufacturers of the Mzansi product line. Built for Mzansi homes.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>Email: culturesonox@gmail.com | Phone: +27 67 910 0022</p>
+        <p>&copy; 2026 Culturei. All rights reserved.</p>
+    </footer>
 
-    <p>
-        Built for real households that need products that work, last longer, and stay affordable.
-    </p>
-
-    <ul>
-        <li>Affordable everyday prices</li>
-        <li>Simple and effective cleaning solutions</li>
-        <li>Made for South African homes</li>
-    </ul>
-</section>
-
-<!-- CALL TO ACTION -->
-<section class="cta">
-    <h2>Ready for a cleaner home?</h2>
-    <p>Explore our products and start simple, effective cleaning today.</p>
-
-    <a href="products.html" class="btn">Shop Now</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <p>© 2026 Culturei. Built for Mzansi homes.</p>
-</footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
