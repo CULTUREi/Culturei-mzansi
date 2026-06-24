@@ -1,279 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Culturei Blog | Mzansi Detergent Insights</title>
-.blog-cta {
-    text-align: center;
-    padding: 60px 20px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culturei Blog | Mzansi Cleaning & Laundry Insights</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- BLOG-SPECIFIC STYLES --- */
+        .blog-hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)), url('https://placehold.co/1920x500/003366/FFFFFF?text=Culturei+Blog');
+            background-size: cover;
+            background-position: center;
+            height: 35vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 1rem;
+        }
 
-.cta-button {
-    display: inline-block;
-    margin: 10px;
-    padding: 12px 24px;
-    background: #D4AF37;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-  <style>
-    /* =========================
-       CULTUREI BRAND VARIABLES
-       (EDIT THESE TO MATCH HOME PAGE)
-    ========================== */
-    :root {
-      --primary: #1e2a38;   /* dark brand color */
-      --accent: #f4a300;    /* highlight / CTA color */
-      --bg: #f8f9fb;        /* page background */
-      --card: #ffffff;      /* blog cards */
-      --text: #222;
-      --muted: #666;
-    }
+        .blog-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
+        .blog-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
 
-    /* =========================
-       HEADER
-    ========================== */
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
 
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
 
-    header p {
-      margin-top: 5px;
-      color: #ccc;
-      font-size: 14px;
-    }
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* =========================
-       NAV
-    ========================== */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      background: #111827;
-      padding: 10px;
-    }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-    }
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+        .blog-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* =========================
-       HERO SECTION
-    ========================== */
-    .hero {
-      text-align: center;
-      padding: 40px 20px;
-    }
+        .blog-tag {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
 
-    .hero h2 {
-      margin-bottom: 10px;
-    }
+        .blog-card h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
 
-    .hero p {
-      color: var(--muted);
-    }
+        .blog-card h3 a {
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
 
-    /* =========================
-       BLOG GRID
-    ========================== */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
+        .blog-card h3 a:hover {
+            color: var(--accent-color);
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
+        .blog-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
 
-    .card {
-      background: var(--card);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
+        .blog-read-more {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+        .blog-read-more:hover {
+            color: #b5952f;
+        }
 
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
+        .blog-read-more i {
+            margin-left: 0.3rem;
+            font-size: 0.8rem;
+        }
 
-    .card-content {
-      padding: 15px;
-    }
+        .blog-cta {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 5%;
+        }
 
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
+        .blog-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
 
-    .card p {
-      font-size: 14px;
-      color: var(--muted);
-    }
+        .blog-cta p {
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
 
-    .tag {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 3px 8px;
-      font-size: 12px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
+        .blog-cta .btn-primary {
+            margin: 0 0.5rem;
+        }
 
-    /* =========================
-       CTA SECTION
-    ========================== */
-    .cta {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: 40px;
-    }
-
-    .cta button {
-      background: var(--accent);
-      border: none;
-      padding: 12px 20px;
-      color: white;
-      font-size: 14px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-  </style>
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-cta h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Culturei Blog</h1>
-    <p>Cleaning insights, stain removal tips & bulk detergent solutions</p>
-  </header>
-
-  <!-- NAV -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="blog.html">Blog</a>
-    <a href="products.html">Products</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h2>Mzansi Cleaning & Laundry Insights</h2>
-    <p>Helping homes, laundries & businesses stay clean while saving money</p>
-  </section>
-
-  <!-- BLOG GRID -->
-  <div class="container">
-    <div class="grid">
-
-      <!-- BLOG POST 1 -->
-      <div class="card">
-        <img src="images/stains.jpg" alt="Stain removal">
-        <div class="card-content">
-          <span class="tag">Stain Removal</span>
-          <a href="posts/grease-stains-mzansi.html">
-  How to Remove Grease Stains from Work Uniforms
-</a>
-          <p>Learn how Mzansi helps break down tough oil and grease stains quickly and effectively.</p>
+    <!-- Header -->
+    <header>
+        <div class="logo">Culture<span>i</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
         </div>
-      </div>
+    </header>
 
-      <!-- BLOG POST 2 -->
-      <div class="card">
-        <img src="images/laundry-business.jpg" alt="Laundry business">
-        <div class="card-content">
-          <span class="tag">Business</span>
-          <h3>Small Laundry Business? Cut Your Detergent Costs</h3>
-          <p>Discover how bulk Mzansi supply helps increase profit margins for laundry owners.</p>
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <h1>Culturei Blog</h1>
+        <p>Cleaning insights, stain removal tips & bulk detergent solutions for Mzansi</p>
+    </section>
+
+    <!-- Blog Grid -->
+    <div class="blog-container">
+        <h2 class="section-title" style="margin-bottom: 2rem;"><span>Latest Articles</span></h2>
+        <div class="blog-grid">
+
+            <!-- Blog Post 1 -->
+            <div class="blog-card">
+                <img src="https://placehold.co/600x400/003366/D4AF37?text=Stain+Removal+Tips" alt="Stain removal">
+                <div class="blog-card-content">
+                    <span class="blog-tag">Stain Removal</span>
+                    <h3><a href="posts/grease-stains-mzansi.html">How to Remove Grease Stains from Work Uniforms</a></h3>
+                    <p>Learn how Mzansi Heavy-Duty Degreaser breaks down tough oil and grease stains quickly and effectively, keeping workwear looking professional.</p>
+                    <a href="posts/grease-stains-mzansi.html" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="blog-card">
+                <img src="https://placehold.co/600x400/003366/D4AF37?text=Laundry+Business" alt="Laundry business">
+                <div class="blog-card-content">
+                    <span class="blog-tag">Business Tips</span>
+                    <h3>Small Laundry Business? Cut Your Detergent Costs</h3>
+                    <p>Discover how buying Mzansi detergent in bulk can significantly reduce your operational costs while maintaining premium cleaning quality.</p>
+                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="blog-card">
+                <img src="https://placehold.co/600x400/003366/D4AF37?text=Guesthouse+Laundry" alt="Guesthouse laundry">
+                <div class="blog-card-content">
+                    <span class="blog-tag">Hospitality</span>
+                    <h3>How Guesthouses Keep Linen Fresh Every Day</h3>
+                    <p>Maintain high-quality laundry standards for guests with Mzansi products. Tips for freshness, stain management, and cost reduction.</p>
+                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Blog Post 4 -->
+            <div class="blog-card">
+                <img src="https://placehold.co/600x400/003366/D4AF37?text=Eco+Friendly+Cleaning" alt="Eco friendly cleaning">
+                <div class="blog-card-content">
+                    <span class="blog-tag">Eco-Friendly</span>
+                    <h3>Why Eco-Friendly Cleaning Matters for Your Family</h3>
+                    <p>Mzansi products are formulated with biodegradable ingredients. Learn how green cleaning benefits your health and the environment.</p>
+                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Blog Post 5 -->
+            <div class="blog-card">
+                <img src="https://placehold.co/600x400/003366/D4AF37?text=Hair+Care+Tips" alt="Hair care tips">
+                <div class="blog-card-content">
+                    <span class="blog-tag">Hair Care</span>
+                    <h3>5 Tips for Healthier Hair with Mzansi Nourishing Shampoo</h3>
+                    <p>Discover the benefits of our specially formulated shampoo designed for all hair types, enriched with traditional African botanicals.</p>
+                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Blog Post 6 -->
+            <div class="blog-card">
+                <img src="https://placehold.co/600x400/003366/D4AF37?text=Spring+Cleaning" alt="Spring cleaning">
+                <div class="blog-card-content">
+                    <span class="blog-tag">Home Cleaning</span>
+                    <h3>The Ultimate Spring Cleaning Checklist with Mzansi</h3>
+                    <p>From degreasing your kitchen to refreshing your laundry, here's how to tackle spring cleaning with the Mzansi product range.</p>
+                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
         </div>
-      </div>
-
-      <!-- BLOG POST 3 -->
-      <div class="card">
-        <img src="images/guesthouse.jpg" alt="Guesthouse laundry">
-        <div class="card-content">
-          <span class="tag">Hospitality</span>
-          <h3>How Guesthouses Keep Linen Fresh Every Day</h3>
-          <p>Maintain high-quality laundry standards for guests while reducing costs.</p>
-        </div>
-      </div>
-
     </div>
-  </div>
 
-  <!-- CTA -->
-  <section class="cta">
-    <h2>Need Bulk Mzansi Detergent?</h2>
-    <p>Contact Culturei today for wholesale & retail orders</p>
-    <button onclick="window.location.href='contact.html'">
-      Get a Quote
-    </button>
-  </section>
-<section class="blog-cta">
-    <h2>Looking for Quality Cleaning Products?</h2>
+    <!-- CTA Section -->
+    <section class="blog-cta">
+        <h2>Need Bulk Mzansi Detergent?</h2>
+        <p>Contact Culturei today for wholesale & retail orders. Premium quality at the best prices.</p>
+        <a href="products.html" class="btn btn-primary">View Products</a>
+        <a href="index.html#contact" class="btn btn-primary" style="background-color: transparent; border: 2px solid var(--accent-color); color: var(--accent-color);">Get a Quote</a>
+    </section>
 
-    <p>
-        Explore the Mzansi cleaning range and discover affordable,
-        effective products for homes and businesses.
-    </p>
+    <!-- Cart Sidebar -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #666; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">R 0.00</span>
+            </div>
+            <button class="btn-checkout" onclick="openCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
 
-    <a href="index.html" class="cta-button">
-        Visit Culturei Home
-    </a>
+    <!-- Checkout Modal -->
+    <div class="overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+    <div class="checkout-modal" id="checkoutModal">
+        <span class="close-modal" onclick="closeCheckout()">&times;</span>
+        <h2>Secure Checkout</h2>
+        <form id="checkoutForm" onsubmit="processPayment(event)">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+                <label>Shipping Address</label>
+                <input type="text" required placeholder="123 Main St, City">
+            </div>
+            <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" required placeholder="0000 0000 0000 0000" maxlength="19">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Expiry</label>
+                    <input type="text" required placeholder="MM/YY" maxlength="5">
+                </div>
+                <div class="form-group">
+                    <label>CVC</label>
+                    <input type="text" required placeholder="123" maxlength="3">
+                </div>
+            </div>
+            <div class="cart-total" style="margin-top: 1rem;">
+                <span>Amount to Pay:</span>
+                <span id="checkoutTotal">R 0.00</span>
+            </div>
+            <button type="submit" class="btn-pay" id="payButton">
+                <span class="spinner" id="spinner"></span>
+                <span id="payText">Pay Now</span>
+            </button>
+        </form>
+    </div>
 
-    <a href="products.html" class="cta-button">
-        View Products
-    </a>
-</section>
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Culturei. All rights reserved.
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <h3>Culturei</h3>
+        <p>Proud manufacturers of the Mzansi product line.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>Email: culturesonox@gmail.com | Phone: +27 67 910 0022</p>
+        <p>&copy; 2026 Culturei. All rights reserved.</p>
+    </footer>
 
+    <script src="script.js"></script>
+</body>
+</html>
 </body>
 </html>
